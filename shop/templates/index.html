@@ -292,7 +292,9 @@
                         <h4>Information</h4>
                         <ul>
                             <li><a href="{% url 'landing_page' %}">Landing Page</a></li>
-                            <li><a href="{% url 'my_profile' %}">My Profile</a></li>
+                            {% if request.user.is_authenticated %}
+                                <li><a href="{% url 'my_profile' %}">My Profile</a></li>
+                            {% endif %}
                             <li><a href="{% url 'all_products' %}">Products Shop</a></li>
                             <li><a href="{% url 'about_us' %}">About Us</a></li>
                             <li><a href="{% url 'contact_us' %}">Contact Us</a></li>
