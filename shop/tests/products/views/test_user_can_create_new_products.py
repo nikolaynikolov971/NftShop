@@ -7,7 +7,7 @@ from tests.base.tests import ShopUserTestCase
 UserModel = get_user_model()
 
 
-class ProfileDetailsTest(ShopUserTestCase):
+class UserCanCreateProduct(ShopUserTestCase):
     def test_userCantCreateProduct(self):
         self.client = Client()
         self.user = UserModel.objects.create_user(
@@ -28,5 +28,5 @@ class ProfileDetailsTest(ShopUserTestCase):
 
         )
         self.client.force_login(self.user)
-        response = self.client.post(reverse('create_product'))
+        response = self.client.get(reverse('create_product'))
         self.assertEqual(200, response.status_code)
