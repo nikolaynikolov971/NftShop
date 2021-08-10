@@ -9,6 +9,6 @@ In CryptoKitties, users collect and breed oh-so-adorable creatures that we call 
 - Python version 3.8.10
 - Django version 3.2.6
 
-##Support
+## Support
 Reach out to me at one of the following places:
 - E-Mail: nikolov.nikolay971@gmail.com
