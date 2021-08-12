@@ -10,4 +10,4 @@ def only_letters_validator(value):
 def only_digits_validator(value):
     result = all(d.isdigit() for d in value)
     if not result:
-        raise ValidationError("The phone number should contain only digits.")
+        raise ValidationError("This field should contain only digits.")

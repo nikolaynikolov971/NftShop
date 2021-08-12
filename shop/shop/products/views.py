@@ -6,7 +6,7 @@ from django.urls import reverse_lazy
 from django.views.generic import ListView, CreateView, DeleteView, TemplateView
 
 from shop.core.mixins import AnyGroupRequiredMixin
-from shop.products.forms import EditProductForm, CheckoutForm
+from shop.products.forms import EditProductForm, CheckoutForm, CardForm
 from shop.products.models import Product
 from django.core.exceptions import ObjectDoesNotExist
 
@@ -125,20 +125,24 @@ def check_out(request):
     product_price = sum([p.price for p in products if not p.is_sold])
     if request.method == "POST":
         form = CheckoutForm(request.POST)
-        if form.is_valid():
+        card_form = CardForm(request.POST)
+
+        if form.is_valid() and card_form.is_valid():
             for product in Product.objects.filter(user_id=request.user.id):
                 product.is_sold = True
                 product.save()
             return redirect('landing_page')
     else:
         form = CheckoutForm()
+        card_form = CardForm()
 
     context = {
         'profile': request.user,
         'user': user,
         'products': products,
         'product_price': product_price,
-        'form': form
+        'form': form,
+        'card_form': card_form,
     }
     return render(request, 'checkout.html', context)
 

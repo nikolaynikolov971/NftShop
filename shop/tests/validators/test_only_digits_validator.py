@@ -13,4 +13,4 @@ class OnlyDigitsValidator(TestCase):
     def test_whenItShouldThrowValidationError(self):
         with self.assertRaises(ValidationError) as context:
             only_digits_validator('1@a1')
-            self.assertEqual(str(context.exception), "The phone number should contain only digits.")
+            self.assertEqual(str(context.exception), "This field should contain only digits.")

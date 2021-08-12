@@ -1,7 +1,9 @@
 from django import forms
 from django.core.exceptions import ValidationError
+from django.core.validators import MaxLengthValidator, MinLengthValidator
 
 from shop.products.models import Product
+from shop.profiles.validators import only_digits_validator
 
 
 class SearchForm(forms.Form):
@@ -12,7 +14,6 @@ class EditProductForm(forms.ModelForm):
     class Meta:
         model = Product
         fields = ('title', 'price', 'description', 'image')
-
 
 
 class CheckoutForm(forms.Form):
@@ -26,3 +27,8 @@ class CheckoutForm(forms.Form):
 
         if value:
             raise ValidationError('Bot was caught.')
+
+
+class CardForm(forms.Form):
+    number = forms.CharField(validators=[only_digits_validator, MinLengthValidator(16), MaxLengthValidator(16)])
+    cvv = forms.CharField(validators=[only_digits_validator, MinLengthValidator(3), MaxLengthValidator(3)])
