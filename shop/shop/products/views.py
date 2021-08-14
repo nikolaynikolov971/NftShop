@@ -58,7 +58,7 @@ class CreateProductView(AnyGroupRequiredMixin, CreateView):
     success_url = reverse_lazy('all_products')
 
 
-@login_required()
+
 def update_product(request, pk):
     product = Product.objects.get(pk=pk)
 
