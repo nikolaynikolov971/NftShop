@@ -186,6 +186,10 @@
                     </h5>
                     <h4>Short Description:</h4>
                     <p>{{ product.description }} </p>
+                    {% if product.is_sold %}
+                    <h4>Owned by:</h4>
+                        <p>{{ product.user }}</p>
+                    {% endif %}
                     <div class="price-box-bar">
                         <div class="cart-and-bay-btn">
                             {% if not product.is_sold and request.user.is_authenticated %}
@@ -310,7 +314,7 @@
 <!-- Start copyright  -->
 <div class="footer-copyright">
     <p class="footer-company">All Rights Reserved. &copy; 2021 <a href="#">CryptoKitties</a> Design By : Nikolay Nikolov
-        </p>
+    </p>
 </div>
 <!-- End copyright  -->
 
