@@ -32,3 +32,7 @@ def profile_details(request):
     }
 
     return render(request, 'update_profile.html', context)
+
+
+def show_all_profiles(request):
+    return render(request, 'profiles.html')
