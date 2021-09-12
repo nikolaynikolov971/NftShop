@@ -147,6 +147,7 @@
             {% for profile in profiles %}
                 <div class="col-lg-4">
                     <div class="card" style="width: 18rem;">
+                        <img src="{% static 'images/user_photo.png' %}" class="card-img-top" alt="...">
                         <div class="card-body">
                             <h5 class="card-title">User: {{ profile.first_name }}</h5>
                             <p class="card-text">Email: {{ profile.user.email }}</p>
@@ -155,8 +156,6 @@
                     </div>
                 </div>
             {% endfor %}
-        {% else %}
-            <h2>You don't have any Kitties</h2>
         {% endif %}
     </div>
 </div>
