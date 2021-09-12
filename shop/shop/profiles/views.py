@@ -35,4 +35,9 @@ def profile_details(request):
 
 
 def show_all_profiles(request):
-    return render(request, 'profiles.html')
+    profiles = Profile.objects.all()
+
+    context = {
+        'profiles': profiles
+    }
+    return render(request, 'profiles.html', context)
