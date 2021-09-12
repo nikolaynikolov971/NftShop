@@ -1,7 +1,9 @@
 from django.contrib.auth.decorators import login_required
+from django.core.paginator import Paginator
 from django.shortcuts import render, redirect
 
 # Create your views here.
+from django.views.generic import ListView
 
 from shop.profiles.forms import ProfileForm
 from shop.profiles.models import Profile
@@ -34,10 +36,8 @@ def profile_details(request):
     return render(request, 'update_profile.html', context)
 
 
-def show_all_profiles(request):
-    profiles = Profile.objects.all()
-
-    context = {
-        'profiles': profiles
-    }
-    return render(request, 'profiles.html', context)
+class ShowAllProfiles(ListView):
+    model = Profile
+    template_name = 'profiles.html'
+    context_object_name = 'profiles'
+    paginate_by = 6
