@@ -40,4 +40,8 @@ class ShowAllProfiles(ListView):
     model = Profile
     template_name = 'profiles.html'
     context_object_name = 'profiles'
-    paginate_by = 6
+    paginate_by = 12
+
+
+def profiles_details(request):
+    return render(request, 'profiles_details.html')
