@@ -43,5 +43,10 @@ class ShowAllProfiles(ListView):
     paginate_by = 12
 
 
-def profiles_details(request):
-    return render(request, 'profiles_details.html')
+def profile_to_show(request, pk):
+    profile = Profile.objects.get(pk=pk)
+
+    context = {
+        'profile': profile
+    }
+    return render(request, 'profiles_details.html', context)
