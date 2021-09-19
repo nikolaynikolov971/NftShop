@@ -43,6 +43,7 @@ class ShowAllProfiles(ListView):
     paginate_by = 12
 
 
+@login_required
 def profile_to_show(request, pk):
     profile = Profile.objects.get(pk=pk)
 
