@@ -5,6 +5,7 @@ from django.shortcuts import render, redirect
 # Create your views here.
 from django.views.generic import ListView
 
+from shop.products.models import Product
 from shop.profiles.forms import ProfileForm
 from shop.profiles.models import Profile
 
@@ -46,8 +47,11 @@ class ShowAllProfiles(ListView):
 @login_required
 def profile_to_show(request, pk):
     profile = Profile.objects.get(pk=pk)
+    products = Product.objects.all()
+    needed_products = [p for p in products if  p.is_sold]
 
     context = {
-        'profile': profile
+        'profile': profile,
+        'needed_products': needed_products
     }
     return render(request, 'profiles_details.html', context)
