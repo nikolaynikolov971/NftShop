@@ -115,6 +115,7 @@
                             {% else %}
                                 <li><a href="{% url 'register_user' %}">My Account</a></li>
                             {% endif %}
+                            <li><a href="{% url 'all_profiles' %}">Profiles</a></li>
                         </ul>
                     </li>
                     <li class="nav-item"><a class="nav-link" href="contact-us.html">Contact Us</a></li>
@@ -187,7 +188,7 @@
                     <h4>Short Description:</h4>
                     <p>{{ product.description }} </p>
                     {% if product.is_sold %}
-                    <h4>Owned by:</h4>
+                        <h4>Owned by:</h4>
                         <p>{{ product.user }}</p>
                     {% endif %}
                     <div class="price-box-bar">
