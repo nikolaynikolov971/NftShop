@@ -17,7 +17,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-        <!-- Site Icons -->
+    <!-- Site Icons -->
     <link rel="shortcut icon" href="{% static 'images/kittylogo.png' %}" type="image/x-icon">
     <link rel="apple-touch-icon" href="{% static 'images/kittylogo.png' %}">
 
@@ -103,6 +103,7 @@
                                 <li><a href="{% url 'check_out' %}">Checkout</a></li>
                             {% endif %}
                             <li><a href="{% url 'my_profile' %}">My Account</a></li>
+                            <li><a href="{% url 'all_profiles' %}">Profiles</a></li>
                         </ul>
                     </li>
                     <li class="nav-item"><a class="nav-link" href="{% url 'contact_us' %}">Contact Us</a></li>
@@ -288,7 +289,7 @@
 <!-- Start copyright  -->
 <div class="footer-copyright">
     <p class="footer-company">All Rights Reserved. &copy; 2021 <a href="#">CryptoKitties</a> Design By : Nikolay Nikolov
-        </p>
+    </p>
 </div>
 <!-- End copyright  -->
 
