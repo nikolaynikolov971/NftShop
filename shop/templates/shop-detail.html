@@ -181,7 +181,7 @@
                 <div class="single-product-details">
                     <h2>{{ product.title }}</h2>
                     <h5>
-                        {{ product.price }}
+                        $ {{ product.price }}
                     </h5>
                     <h5>
                     </h5>
@@ -199,7 +199,7 @@
                                    href="{% url 'add_product_to_cart' product.id %}">Add to cart</a>
                             {% endif %}
                             <br>
-                            {% if request.user.is_staff %}
+                            {% if request.user.is_staff and not product.is_sold%}
                                 <a class="btn btn-primary mt-2" data-fancybox-close=""
                                    href="{% url 'update_product' product.id %}">Update Product</a>
                                 <br>

@@ -152,7 +152,7 @@
                         <div class="card-body">
                             <h5 class="card-title">User: {{ profile.first_name }}</h5>
                             <p class="card-text">Email: {{ profile.user.email }}</p>
-                            <a href="" class="btn btn-primary">See Profile</a>
+                            <a href="{% url 'profile_to_show' profile.pk %}" class="btn btn-primary">See Profile</a>
                         </div>
                     </div>
                 </div>

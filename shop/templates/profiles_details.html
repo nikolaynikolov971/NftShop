@@ -144,7 +144,7 @@
     <h1 class='text-center'>Profile Details</h1>
     <div class="row">
         <div class="col-lg-4">
-            <div class="card" style="width: 18rem;">
+            <div class="card" style="width: 70%; text-align: center;">
                 <img src="{% static 'images/user_photo.png' %}" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">User: {{ profile.first_name }}</h5>
@@ -155,9 +155,10 @@
     </div>
     <div class="row">
         {% if needed_products %}
+            <h1>This user owns:</h1>
             {% for product in needed_products %}
                 <div class="col-lg-4">
-                    <div class="card" style="width: 18rem;">
+                    <div class="card" style="width: 70%;">
                         <img src="{{ product.image.url }}" class="card-img-top" alt="...">
                         <div class="card-body">
                             <h5 class="card-title">{{ product.title }}, Price: {{ product.price }}</h5>

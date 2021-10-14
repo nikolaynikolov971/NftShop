@@ -44,11 +44,10 @@ class ShowAllProfiles(ListView):
     paginate_by = 12
 
 
-@login_required
 def profile_to_show(request, pk):
     profile = Profile.objects.get(pk=pk)
     products = Product.objects.all()
-    needed_products = [p for p in products if  p.is_sold]
+    needed_products = [p for p in products if p.is_sold and p.user_id == profile.pk]
 
     context = {
         'profile': profile,
